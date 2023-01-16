@@ -1,11 +1,12 @@
 package org.example.model;
 
+import org.example.exception.InCorrectParameterException;
 import org.example.exception.NegativeException;
 
 public interface Service {
     // 1.1 Реализовать функция, которая принимает два целых числа (a, b) и возвращает массив,
     // содержащий по очереди  "b" первых цифр из "a". (34634552, 6) -> [3, 4, 6, 3, 4, 5].
-    int[] arrayContainingBFromAInt(int a, int b);
+    int[] arrayContainingBFromAInt(int a, int b) throws InCorrectParameterException;
 
     // 1.2 сдлетаь 1.1 для вещественного числа. Цифры будут выводиться после запятой. (1.34565634, 4) -> [3, 4, 5, 6].
     int[] arrayContainingBFromADouble(double a, int b);

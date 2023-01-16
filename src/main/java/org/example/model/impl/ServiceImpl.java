@@ -1,5 +1,6 @@
 package org.example.model.impl;
 
+import org.example.exception.InCorrectParameterException;
 import org.example.exception.NegativeException;
 import org.example.model.Service;
 
@@ -7,17 +8,46 @@ import java.util.Arrays;
 
 public class ServiceImpl implements Service {
     @Override
-    public int[] arrayContainingBFromAInt(int a, int b) {
-        int reversed = 0;
-        for (; a != 0; a /= 10) {
-            int digit = a % 10;
-            reversed = reversed * 10 + digit;
-        }
+    public int[] arrayContainingBFromAInt(int a, int b) throws InCorrectParameterException {
         int[] array = new int[b];
-        for (int i = 0; i < b; ++i) {
-            array[i] += reversed % 10;
-            reversed /= 10;
+        int reversed = 0;
+        if (countDigit(a) < b) {
+            throw new InCorrectParameterException("A must be greater than b");
         }
+        else if(b == 0){
+            return arrayOfNumber(a);
+        }else {
+            for (; a != 0; a /= 10) {
+                int digit = a % 10;
+                reversed = reversed * 10 + digit;
+            }
+            for (int i = 0; i < b; ++i) {
+                array[i] += reversed % 10;
+                reversed /= 10;
+            }
+
+        }
+        return array;
+    }
+
+    private int countDigit(int number) {
+        int length = 0;
+        long temp = 1;
+        while (temp <= number) {
+            length++;
+            temp *= 10;
+        }
+        return length;
+    }
+
+    private int[] arrayOfNumber(int number) {
+        int[] array = new int[countDigit(number)];
+        int i = countDigit(number) - 1;
+        do {
+            array[i] = number % 10;
+            number = number / 10;
+            i--;
+        } while (number > 0);
 
         return array;
     }
@@ -288,7 +318,7 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(int n ,int[] mas) {
+    public int[] findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(int n, int[] mas) {
         int[] resultMas = new int[n];
 
         for (int i = 0; i < mas.length; i++) {
@@ -320,7 +350,7 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int sumOfSerialNumbersPrimeNumbers(int n ,int[] mas) {
+    public int sumOfSerialNumbersPrimeNumbers(int n, int[] mas) {
         int[] primes = new int[mas.length];
         for (int i = 0; i < mas.length; i++) {
             if (isPrime(i)) {
@@ -330,7 +360,7 @@ public class ServiceImpl implements Service {
         int[] result = Arrays.stream(primes).filter(num -> num != 0).toArray();
         int sum = 0;
         for (int i = 0; i < result.length; i++) {
-            sum+= result[i];
+            sum += result[i];
         }
         return sum;
     }
@@ -347,7 +377,7 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int sumOfPrimeNumbers(int n ,int[] mas) {
+    public int sumOfPrimeNumbers(int n, int[] mas) {
 //        int[] main.result = new int[mas.length];
         int sum = 0;
         for (int i = 0; i < mas.length; i++) {
