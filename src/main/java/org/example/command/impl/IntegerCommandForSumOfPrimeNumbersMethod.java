@@ -10,7 +10,7 @@ import org.example.result.impl.IntegerCommandResult;
 public class IntegerCommandForSumOfPrimeNumbersMethod implements Command<IntegerCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntegerCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntegerCommandResult execute(CommandParams commandParams) throws Exception {
         int allNNaturalDivisors = service.sumOfPrimeNumbers(((IntegerValueAndArrayCommandData) commandParams).a, ((IntegerValueAndArrayCommandData) commandParams).array);
         IntegerCommandResult intArrayCommandResult = new IntegerCommandResult();
         intArrayCommandResult.value = allNNaturalDivisors;

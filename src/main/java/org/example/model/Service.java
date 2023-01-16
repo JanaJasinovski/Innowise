@@ -2,6 +2,7 @@ package org.example.model;
 
 import org.example.exception.InCorrectParameterException;
 import org.example.exception.NegativeException;
+import org.example.exception.ValueCommandDataException;
 
 public interface Service {
     // 1.1 Реализовать функция, которая принимает два целых числа (a, b) и возвращает массив,
@@ -9,7 +10,7 @@ public interface Service {
     int[] arrayContainingBFromAInt(int a, int b) throws InCorrectParameterException;
 
     // 1.2 сдлетаь 1.1 для вещественного числа. Цифры будут выводиться после запятой. (1.34565634, 4) -> [3, 4, 5, 6].
-    int[] arrayContainingBFromADouble(double a, int b);
+    int[] arrayContainingBFromADouble(double a, int b) throws NegativeException;
 
     // 2.1 . Реализовать функцию, которая принимает вещественное число и возвращает булиан: есть ли среди первых трех
     // цифр дробной части заданного положительного вещественного числа, цифра 0.
@@ -34,33 +35,33 @@ public interface Service {
     int sumOfNaturalNumberDivided3(int a);
 
     // 3.Найдите сумму первых n натуральных чисел, которые являются числами Фиббоначчи.
-    int sumNFibonacci(int a);
+    int sumNFibonacci(int a) throws NegativeException;
 
     // Найдите сумму первых n натуральных чисел, которые являются полными квадратами.
-    int sumOfFirstNNaturalNumbersAreFullSquares(int a);
+    int sumOfFirstNNaturalNumbersAreFullSquares(int a) throws NegativeException;
 
     // Дано натуральное число n. Получить все его натуральные делители.
-    int[] getAllNNaturalDivisors(int a);
+    int[] getAllNNaturalDividors(int a) throws NegativeException, ValueCommandDataException;
 
     // Даны  натуральные числа n, m. Получить их общие делители.
-    int[] getNMCommonDivisors(int a, int b);
+    int[] getNMCommonDivisors(int a, int b) throws NegativeException, ValueCommandDataException;
 
     // Даны натуральные числа n, m. Получить все общие кратные, меньшие m&n.
-    int[] getAllCommonMultiplesLessMAndN(int a, int b);
+    int[] getAllCommonMultiplesLessMAndN(int a, int b) throws NegativeException, ValueCommandDataException;
 
     // Найти все простые числа, не превосходящие заданного натурального числа n.
-    int[] findAllNumbersNotExceedingN(int n);
+    int[] findAllNumbersNotExceedingN(int n) throws NegativeException, ValueCommandDataException;
 
     // Среди всех четырехзначных чисел получить все простые числа, у каждого из которых сумма первых двух цифр равна
     // сумме двух последних цифр.
-    int[] findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(int n ,int[] mas);
+    int[] findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(int n ,int[] mas) throws NegativeException, ValueCommandDataException;
 
     // Дана последовательность натуральных чисел длины n. Вычислить сумму тех из них, порядковые номера которых – '
     // простые числа.
-    int sumOfSerialNumbersPrimeNumbers(int n ,int[] mas);
+    int sumOfSerialNumbersPrimeNumbers(int n ,int[] mas) throws ValueCommandDataException;
 
     // Дана последовательность натуральных чисел длины n. Вычислить сумму тех из них, которые – простые числа.
-    int sumOfPrimeNumbers(int n ,int[] mas);
+    int sumOfPrimeNumbers(int n ,int[] mas) throws ValueCommandDataException;
 
     // Определить, какую наибольшую степень числа 100 можно вычислить, пользуясь типом int.
     // pow = log100(Integer.MAX_VALUE) .

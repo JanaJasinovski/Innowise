@@ -12,7 +12,7 @@ import org.example.result.impl.IntArrayCommandResult;
 public class IntArrayCommandForArrayContainingBFromAIntMethod implements Command<IntArrayCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntArrayCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws NegativeException, InCorrectParameterException {
+    public IntArrayCommandResult execute(CommandParams commandParams) throws NegativeException, InCorrectParameterException {
         int[] ints = service.arrayContainingBFromAInt(
                 ((Integer2ValuesCommandData) commandParams).a,
                 ((Integer2ValuesCommandData) commandParams).b);

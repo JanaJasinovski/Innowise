@@ -11,7 +11,7 @@ public class BooleanCommandForIsFirstDigitOfFractionalPartEqualToThirdDigitWhole
     Service service = new ServiceImpl();
 
     @Override
-    public BooleanCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public BooleanCommandResult execute(CommandParams commandParams) throws Exception {
         boolean firstDigitOfFractionalPartEqualToThirdDigitWholePart =
                 service.isFirstDigitOfFractionalPartEqualToThirdDigitWholePart(((DoubleValueCommandData) commandParams).a);
         BooleanCommandResult booleanCommandResult = new BooleanCommandResult();

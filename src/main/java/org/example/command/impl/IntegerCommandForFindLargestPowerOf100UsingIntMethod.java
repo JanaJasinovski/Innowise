@@ -9,7 +9,7 @@ import org.example.result.impl.IntegerCommandResult;
 public class IntegerCommandForFindLargestPowerOf100UsingIntMethod implements Command<IntegerCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntegerCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntegerCommandResult execute(CommandParams commandParams) throws Exception {
         int allNNaturalDivisors = service.findLargestPowerOf100UsingInt();
         IntegerCommandResult intArrayCommandResult = new IntegerCommandResult();
         intArrayCommandResult.value = allNNaturalDivisors;

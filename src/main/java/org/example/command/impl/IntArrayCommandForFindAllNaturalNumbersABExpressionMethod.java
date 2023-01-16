@@ -11,7 +11,7 @@ public class IntArrayCommandForFindAllNaturalNumbersABExpressionMethod implement
     Service service = new ServiceImpl();
 
     @Override
-    public IntArrayCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntArrayCommandResult execute(CommandParams commandParams) throws Exception {
         int[] allNNaturalDivisors = service.findAllNaturalNumbersABExpression(((Integer3ValuesCommandData) commandParams).a, ((Integer3ValuesCommandData) commandParams).b, ((Integer3ValuesCommandData) commandParams).c);
         IntArrayCommandResult intArrayCommandResult = new IntArrayCommandResult();
         intArrayCommandResult.intArray = allNNaturalDivisors;

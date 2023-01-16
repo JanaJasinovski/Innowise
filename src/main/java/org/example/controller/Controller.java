@@ -20,7 +20,7 @@ public class Controller {
             number = view.getNumberOfTask();
             CommandParams commandParams = paramsHandler.getParam(number).generateParam();
             Command<?> service = commandHandler.getService(number);
-            String convert = typeHandler.getHandler(service.getType()).convert(service.insertParametersIntoVariousMethods(commandParams));
+            String convert = typeHandler.getHandler(service.getType()).convert(service.execute(commandParams));
             view.print(convert);
         } while (number != 26);
     }

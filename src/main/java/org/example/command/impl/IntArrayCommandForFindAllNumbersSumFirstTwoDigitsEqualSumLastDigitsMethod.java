@@ -10,7 +10,7 @@ import org.example.result.impl.IntArrayCommandResult;
 public class IntArrayCommandForFindAllNumbersSumFirstTwoDigitsEqualSumLastDigitsMethod implements Command<IntArrayCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntArrayCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntArrayCommandResult execute(CommandParams commandParams) throws Exception {
         int[] allNNaturalDivisors = service.findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(((IntegerValueAndArrayCommandData) commandParams).a, ((IntegerValueAndArrayCommandData) commandParams).array);
         IntArrayCommandResult intArrayCommandResult = new IntArrayCommandResult();
         intArrayCommandResult.intArray = allNNaturalDivisors;

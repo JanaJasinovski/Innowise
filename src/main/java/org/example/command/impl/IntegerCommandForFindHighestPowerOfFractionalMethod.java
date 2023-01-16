@@ -11,7 +11,7 @@ public class IntegerCommandForFindHighestPowerOfFractionalMethod implements Comm
     Service service = new ServiceImpl();
 
     @Override
-    public IntegerCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntegerCommandResult execute(CommandParams commandParams) throws Exception {
         int allNNaturalDivisors = service.findHighestPowerOfFactorial(((IntegerValueCommandData) commandParams).a);
         IntegerCommandResult intArrayCommandResult = new IntegerCommandResult();
         intArrayCommandResult.value = allNNaturalDivisors;

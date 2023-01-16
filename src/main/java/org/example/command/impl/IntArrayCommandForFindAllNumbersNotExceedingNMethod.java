@@ -10,7 +10,7 @@ import org.example.result.impl.IntArrayCommandResult;
 public class IntArrayCommandForFindAllNumbersNotExceedingNMethod implements Command<IntArrayCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntArrayCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntArrayCommandResult execute(CommandParams commandParams) throws Exception {
         int[] allNNaturalDivisors = service.findAllNumbersNotExceedingN(((IntegerValueCommandData) commandParams).a);
         IntArrayCommandResult intArrayCommandResult = new IntArrayCommandResult();
         intArrayCommandResult.intArray = allNNaturalDivisors;

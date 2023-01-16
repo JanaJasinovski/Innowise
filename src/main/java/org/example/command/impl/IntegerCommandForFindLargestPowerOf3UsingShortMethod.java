@@ -9,7 +9,7 @@ import org.example.result.impl.IntegerCommandResult;
 public class IntegerCommandForFindLargestPowerOf3UsingShortMethod implements Command<IntegerCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntegerCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntegerCommandResult execute(CommandParams commandParams) throws Exception {
         int allNNaturalDivisors = service.findLargestPowerOf3UsingShort();
         IntegerCommandResult intArrayCommandResult = new IntegerCommandResult();
         intArrayCommandResult.value = allNNaturalDivisors;

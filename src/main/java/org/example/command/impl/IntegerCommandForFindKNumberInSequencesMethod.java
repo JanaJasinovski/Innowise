@@ -11,7 +11,7 @@ import org.example.result.impl.IntegerCommandResult;
 public class IntegerCommandForFindKNumberInSequencesMethod implements Command<IntegerCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntegerCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws NegativeException {
+    public IntegerCommandResult execute(CommandParams commandParams) throws NegativeException {
         int ints = service.findKNumberInSequences(((IntegerValueCommandData) commandParams).a);
         IntegerCommandResult intArrayCommandResult = new IntegerCommandResult();
         intArrayCommandResult.value = ints;

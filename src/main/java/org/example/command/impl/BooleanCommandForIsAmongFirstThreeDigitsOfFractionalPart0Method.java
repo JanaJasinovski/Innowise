@@ -10,7 +10,7 @@ import org.example.result.impl.BooleanCommandResult;
 public class BooleanCommandForIsAmongFirstThreeDigitsOfFractionalPart0Method implements Command<BooleanCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public BooleanCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public BooleanCommandResult execute(CommandParams commandParams) throws Exception {
         boolean amongFirstThreeDigitsOfFractionalPart0 = service.isAmongFirstThreeDigitsOfFractionalPart0(
                 ((DoubleValueCommandData) commandParams).a);
         BooleanCommandResult booleanCommandResult = new BooleanCommandResult();

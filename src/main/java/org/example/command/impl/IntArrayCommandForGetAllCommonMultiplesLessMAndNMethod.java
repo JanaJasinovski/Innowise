@@ -11,7 +11,7 @@ public class IntArrayCommandForGetAllCommonMultiplesLessMAndNMethod implements C
 
     Service service = new ServiceImpl();
     @Override
-    public IntArrayCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntArrayCommandResult execute(CommandParams commandParams) throws Exception {
         int[] allCommonMultiplesLessMAndN = service.getAllCommonMultiplesLessMAndN(
                 ((Integer2ValuesCommandData) commandParams).a,
                 ((Integer2ValuesCommandData) commandParams).b);

@@ -11,7 +11,7 @@ public class BooleanCommandForIsAllDigitsOfNumberDifferentMethod implements Comm
     Service service = new ServiceImpl();
 
     @Override
-    public BooleanCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public BooleanCommandResult execute(CommandParams commandParams) throws Exception {
         boolean allNNaturalDivisors = service.isAllDigitsOfNumberDifferent(((IntegerValueCommandData) commandParams).a);
         BooleanCommandResult intArrayCommandResult = new BooleanCommandResult();
         intArrayCommandResult.value = allNNaturalDivisors;

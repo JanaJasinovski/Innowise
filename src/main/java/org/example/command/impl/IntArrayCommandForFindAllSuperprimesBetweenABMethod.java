@@ -11,7 +11,7 @@ public class IntArrayCommandForFindAllSuperprimesBetweenABMethod implements Comm
     Service service = new ServiceImpl();
 
     @Override
-    public IntArrayCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntArrayCommandResult execute(CommandParams commandParams) throws Exception {
         int[] allNNaturalDivisors = service.findAllSuperprimesBetweenAB(((Integer2ValuesCommandData) commandParams).a, ((Integer2ValuesCommandData) commandParams).b);
         IntArrayCommandResult intArrayCommandResult = new IntArrayCommandResult();
         intArrayCommandResult.intArray = allNNaturalDivisors;

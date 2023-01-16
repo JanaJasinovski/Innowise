@@ -10,7 +10,7 @@ import org.example.result.impl.IntegerCommandResult;
 public class IntegerCommandForSumNFibonacciMethod implements Command<IntegerCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntegerCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
+    public IntegerCommandResult execute(CommandParams commandParams) throws Exception {
         int integerValue = service.sumNFibonacci(((IntegerValueCommandData) commandParams).a);
         IntegerCommandResult integerCommandResult = new IntegerCommandResult();
         integerCommandResult.value = integerValue;

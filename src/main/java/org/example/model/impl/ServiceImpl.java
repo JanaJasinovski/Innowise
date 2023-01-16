@@ -2,6 +2,7 @@ package org.example.model.impl;
 
 import org.example.exception.InCorrectParameterException;
 import org.example.exception.NegativeException;
+import org.example.exception.ValueCommandDataException;
 import org.example.model.Service;
 
 import java.util.Arrays;
@@ -13,10 +14,9 @@ public class ServiceImpl implements Service {
         int reversed = 0;
         if (countDigit(a) < b) {
             throw new InCorrectParameterException("A must be greater than b");
-        }
-        else if(b == 0){
+        } else if (b == 0) {
             return arrayOfNumber(a);
-        }else {
+        } else {
             for (; a != 0; a /= 10) {
                 int digit = a % 10;
                 reversed = reversed * 10 + digit;
@@ -53,23 +53,45 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] arrayContainingBFromADouble(double a, int b) {
-        double fract = a - (int) a;
-        for (int i = 0; i < b; i++) {
-            fract *= 10;
-        }
-        int fractInt = (int) fract;
+    public int[] arrayContainingBFromADouble(double a, int b) throws NegativeException {
+        double fract = a % 1;
         int[] array = new int[b];
-        int reversed = 0;
-        for (; fractInt != 0; fractInt /= 10) {
-            int digit = fractInt % 10;
-            reversed = reversed * 10 + digit;
+        if(a < 0) {
+            throw new NegativeException("Incorrect first number");
         }
-        for (int i = 0; i < b; ++i) {
-            array[i] += reversed % 10;
-            reversed /= 10;
+        if (count(a) < b) {
+            throw new InCorrectParameterException("A digits must be greater than b");
+        } else if (b == 0) {
+            int[] array2 = new int[count(a)];
+            for (int i = 0; i < count(a); i++) {
+                fract *= 10;
+            }
+            int fractInt = (int) fract;
+            int reversed = 0;
+            for (; fractInt != 0; fractInt /= 10) {
+                int digit = fractInt % 10;
+                reversed = reversed * 10 + digit;
+            }
+            for (int i = 0; i < count(a); ++i) {
+                array2[i] += reversed % 10;
+                reversed /= 10;
+            }
+            return array2;
+        } else {
+            for (int i = 0; i < b; i++) {
+                fract *= 10;
+            }
+            int fractInt = (int) fract;
+            int reversed = 0;
+            for (; fractInt != 0; fractInt /= 10) {
+                int digit = fractInt % 10;
+                reversed = reversed * 10 + digit;
+            }
+            for (int i = 0; i < b; ++i) {
+                array[i] += reversed % 10;
+                reversed /= 10;
+            }
         }
-
         return array;
     }
 
@@ -134,7 +156,7 @@ public class ServiceImpl implements Service {
         }
 
         if (array[0] == fractional) {
-            flag = true;
+            return flag;
         }
 
         return flag;
@@ -172,7 +194,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int sumNFibonacci(int a) {
+    public int sumNFibonacci(int a) throws NegativeException {
+        if(a < 0) {
+            throw new NegativeException("a less than 0");
+        }
+        else if(a == 0) {
+            return 0;
+        }
         int sumNumbers = 0;
         long first = 0;
         long second = 1;
@@ -187,7 +215,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int sumOfFirstNNaturalNumbersAreFullSquares(int a) {
+    public int sumOfFirstNNaturalNumbersAreFullSquares(int a) throws NegativeException {
+        if(a < 0) {
+            throw new NegativeException("a less than 0");
+        }
+        else if(a == 0) {
+            return 0;
+        }
         int sumNumbers = 0;
         for (int i = 1; i <= a; i++) {
             if (isSquare(i)) {
@@ -208,7 +242,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] getAllNNaturalDivisors(int a) {
+    public int[] getAllNNaturalDividors(int a) throws NegativeException, ValueCommandDataException {
+        if(a < 0) {
+            throw new NegativeException("a less than 0");
+        }
+        else if(a == 0) {
+            throw new ValueCommandDataException("a can't be 0");
+        }
         int[] result = new int[a];
         for (int i = 1; i <= a; i++) {
             if ((a % i) == 0)
@@ -219,7 +259,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] getNMCommonDivisors(int a, int b) {
+    public int[] getNMCommonDivisors(int a, int b) throws NegativeException, ValueCommandDataException {
+        if(a < 0 || b < 0) {
+            throw new NegativeException("a or b less than 0");
+        }
+        else if(a == 0 || b == 0) {
+            throw new ValueCommandDataException("a or b can't be 0");
+        }
         int j = 0;
         int k = 0;
         int max = Math.max(a, b);
@@ -250,7 +296,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] getAllCommonMultiplesLessMAndN(int a, int b) {
+    public int[] getAllCommonMultiplesLessMAndN(int a, int b) throws NegativeException, ValueCommandDataException {
+        if(a < 0 || b < 0) {
+            throw new NegativeException("a or b less than 0");
+        }
+        else if(a == 0 || b == 0) {
+            throw new ValueCommandDataException("a or b can't be 0");
+        }
         int nm = a * b;
         int lcm = a / gcd(a, b) * b;
 
@@ -287,7 +339,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] findAllNumbersNotExceedingN(int n) {
+    public int[] findAllNumbersNotExceedingN(int n) throws NegativeException, ValueCommandDataException {
+        if(n < 0) {
+            throw new NegativeException("n less than 0");
+        }
+        else if(n == 0) {
+            throw new ValueCommandDataException("n can't be 0");
+        }
         int[] primes = new int[n];
         int count = 0;
         int p = 2;
@@ -318,9 +376,14 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(int n, int[] mas) {
+    public int[] findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(int n, int[] mas) throws NegativeException, ValueCommandDataException {
+        if(n < 0) {
+            throw new NegativeException("n less than 0");
+        }
+        else if(n == 0) {
+            throw new ValueCommandDataException("n can't be 0");
+        }
         int[] resultMas = new int[n];
-
         for (int i = 0; i < mas.length; i++) {
             if (countInt(mas[i]) == 4) {
                 resultMas[i] = mas[i];
@@ -350,7 +413,10 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int sumOfSerialNumbersPrimeNumbers(int n, int[] mas) {
+    public int sumOfSerialNumbersPrimeNumbers(int n, int[] mas) throws ValueCommandDataException {
+        if(n <= 0) {
+            throw new ValueCommandDataException("n is 0");
+        }
         int[] primes = new int[mas.length];
         for (int i = 0; i < mas.length; i++) {
             if (isPrime(i)) {
@@ -377,8 +443,11 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int sumOfPrimeNumbers(int n, int[] mas) {
+    public int sumOfPrimeNumbers(int n, int[] mas) throws ValueCommandDataException {
 //        int[] main.result = new int[mas.length];
+        if(n <= 0) {
+            throw new ValueCommandDataException("n is 0");
+        }
         int sum = 0;
         for (int i = 0; i < mas.length; i++) {
             if (isPrime(mas[i])) {

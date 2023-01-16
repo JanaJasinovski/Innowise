@@ -2,6 +2,8 @@ package org.example.handler;
 
 import org.example.command.Command;
 import org.example.command.impl.*;
+import org.example.model.Service;
+import org.example.model.impl.ServiceImpl;
 import org.example.result.CommandResult;
 
 import java.util.HashMap;
@@ -9,7 +11,7 @@ import java.util.Map;
 
 public class CommandHandler {
     private final Map<Integer, Command<? extends CommandResult>> map;
-
+    private final Service service = new ServiceImpl();
     public CommandHandler() {
         this.map = new HashMap<>();
     }
@@ -34,7 +36,7 @@ public class CommandHandler {
         map.put(17, new IntegerCommandForFindLargestPowerOf3UsingShortMethod());
         map.put(18, new IntegerCommandForFindHighestPowerOfFractionalMethod());
         map.put(19, new BooleanCommandForIsAllDigitsOfNumberDifferentMethod());
-        map.put(20, new BooleanCommandForIsSumFirstKDigitsFractionalPartEqualSumNextNDigitsMethod());
+        map.put(20, new BooleanCommandForIsSumFirstKDigitsFractionalPartEqualSumNextNDigitsMethod(service));
         map.put(21, new IntArrayCommandForFindAllNaturalNumbersABExpressionMethod());
         map.put(22, new IntArrayCommandForFindAllSuperprimesBetweenABMethod());
         map.put(23, new IntegerCommandForFindColNumbersInLongestSubsequenceNumbersSortedASCMethod());

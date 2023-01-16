@@ -10,8 +10,8 @@ import org.example.result.impl.IntArrayCommandResult;
 public class IntArrayCommandForGetAllNNaturalDivisorsMethod implements Command<IntArrayCommandResult> {
     Service service = new ServiceImpl();
     @Override
-    public IntArrayCommandResult insertParametersIntoVariousMethods(CommandParams commandParams) throws Exception {
-        int[] allNNaturalDivisors = service.getAllNNaturalDivisors(((IntegerValueCommandData) commandParams).a);
+    public IntArrayCommandResult execute(CommandParams commandParams) throws Exception {
+        int[] allNNaturalDivisors = service.getAllNNaturalDividors(((IntegerValueCommandData) commandParams).a);
         IntArrayCommandResult intArrayCommandResult = new IntArrayCommandResult();
         intArrayCommandResult.intArray = allNNaturalDivisors;
         return intArrayCommandResult;
