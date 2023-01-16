@@ -1,6 +1,6 @@
 package org.example.generator.impl;
 
-import org.example.data.SixCommandData;
+import org.example.data.Integer3ValuesCommandData;
 import org.example.generator.ParamGenerator;
 import org.example.params.CommandParams;
 import org.example.view.View;
@@ -10,7 +10,7 @@ public class SixCommandParamGenerator implements ParamGenerator {
     @Override
     public CommandParams generateParam() {
         view.print("Enter first value: ");
-        SixCommandData data = new SixCommandData();
+        Integer3ValuesCommandData data = new Integer3ValuesCommandData();
         data.a = view.getFirstIntValue();
         view.print("Enter second value: ");
         data.b = view.getFirstIntValue();
