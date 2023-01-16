@@ -4,3 +4,6 @@
 /build/classes/java/main/
 /.idea/
 .gitignore
+/gradlew
+/gradlew.bat
+/settings.gradle
