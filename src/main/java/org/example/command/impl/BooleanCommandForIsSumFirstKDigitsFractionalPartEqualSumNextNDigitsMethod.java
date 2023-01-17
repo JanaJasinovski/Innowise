@@ -1,5 +1,6 @@
 package org.example.command.impl;
 
+import lombok.AllArgsConstructor;
 import org.example.command.Command;
 import org.example.data.DoubleValueIntegerValueCommandData;
 import org.example.exception.ValueCommandDataException;
@@ -8,12 +9,9 @@ import org.example.model.impl.ServiceImpl;
 import org.example.params.CommandParams;
 import org.example.result.impl.BooleanCommandResult;
 
+@AllArgsConstructor
 public class BooleanCommandForIsSumFirstKDigitsFractionalPartEqualSumNextNDigitsMethod implements Command<BooleanCommandResult> {
-    private final Service service;
-
-    public BooleanCommandForIsSumFirstKDigitsFractionalPartEqualSumNextNDigitsMethod(Service service) {
-        this.service = service;
-    }
+    private Service service;
     @Override
     public BooleanCommandResult execute(CommandParams commandParams) throws Exception {
         if(!(commandParams instanceof DoubleValueIntegerValueCommandData)) {

@@ -6,12 +6,12 @@ import org.example.params.CommandParams;
 import org.example.view.View;
 
 public class DoubleCommandParamGenerator implements ParamGenerator {
-    View view = new View();
+    private final View view = new View();
     @Override
     public CommandParams generateParam() {
         view.print("Enter double value: ");
         DoubleValueCommandData data = new DoubleValueCommandData();
-        data.a = view.getDoubleValue();
+        data.setA(view.getDoubleValue());
         return data;
     }
 }

@@ -11,9 +11,9 @@ public class IntegerAndArrayCommandParamGenerator implements ParamGenerator {
     public CommandParams generateParam() {
         view.print("Enter size of array: ");
         IntegerValueAndArrayCommandData data = new IntegerValueAndArrayCommandData();
-        data.a = view.getFirstIntValue();
+        data.setA(view.getFirstIntValue());
         view.print("Enter elements of array: ");
-        data.array = view.enterArray(data.a);
+        data.setArray(view.enterArray(data.getA()));
         return data;
     }
 }

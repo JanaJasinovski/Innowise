@@ -1,15 +1,21 @@
 package org.example.command.impl;
 
+import lombok.AllArgsConstructor;
 import org.example.command.Command;
+import org.example.data.ZeroCommandData;
+import org.example.exception.ValueCommandDataException;
 import org.example.model.Service;
-import org.example.model.impl.ServiceImpl;
 import org.example.params.CommandParams;
 import org.example.result.impl.IntegerCommandResult;
 
+@AllArgsConstructor
 public class IntegerCommandForFindLargestPowerOf3UsingShortMethod implements Command<IntegerCommandResult> {
-    Service service = new ServiceImpl();
+    private Service service;
     @Override
     public IntegerCommandResult execute(CommandParams commandParams) throws Exception {
+        if(!(commandParams instanceof ZeroCommandData)) {
+            throw new ValueCommandDataException("incorrect command parameters");
+        }
         int allNNaturalDivisors = service.findLargestPowerOf3UsingShort();
         IntegerCommandResult intArrayCommandResult = new IntegerCommandResult();
         intArrayCommandResult.value = allNNaturalDivisors;

@@ -11,11 +11,11 @@ public class SixCommandParamGenerator implements ParamGenerator {
     public CommandParams generateParam() {
         view.print("Enter first value: ");
         Integer3ValuesCommandData data = new Integer3ValuesCommandData();
-        data.a = view.getFirstIntValue();
+        data.setA(view.getFirstIntValue());
         view.print("Enter second value: ");
-        data.b = view.getFirstIntValue();
+        data.setB(view.getFirstIntValue());
         view.print("Enter third value: ");
-        data.c = view.getFirstIntValue();
+        data.setC(view.getFirstIntValue());
         return data;
     }
 }

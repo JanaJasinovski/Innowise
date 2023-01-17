@@ -11,9 +11,9 @@ public class TwoIntegersCommandParamGenerator implements ParamGenerator {
     public CommandParams generateParam() {
         System.out.println("Enter integer value: ");
         Integer2ValuesCommandData data = new Integer2ValuesCommandData();
-        data.a = view.getFirstIntValue();
+        data.setA(view.getFirstIntValue());
         System.out.println("Enter integer value: ");
-        data.b = view.getFirstIntValue();
+        data.setB(view.getFirstIntValue());
         return data;
     }
 }
