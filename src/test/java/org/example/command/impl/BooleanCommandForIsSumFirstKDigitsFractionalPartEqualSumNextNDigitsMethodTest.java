@@ -22,6 +22,15 @@ class BooleanCommandForIsSumFirstKDigitsFractionalPartEqualSumNextNDigitsMethodT
 
         verify(mockService, times(1)).isSumFirstKDigitsFractionalPartEqualSumNextNDigits(1.234, 2);
         assertFalse(result.value);
+
+        data = new DoubleValueIntegerValueCommandData(1.2341, 2); // to do
+        command = new BooleanCommandForIsSumFirstKDigitsFractionalPartEqualSumNextNDigitsMethod(mockService);
+        when(mockService.isSumFirstKDigitsFractionalPartEqualSumNextNDigits(1.2341, 2)).thenReturn(true);
+
+         result = command.execute(data);
+
+        verify(mockService, times(1)).isSumFirstKDigitsFractionalPartEqualSumNextNDigits(1.2341, 2);
+        assertTrue(result.value);
     }
 
 }

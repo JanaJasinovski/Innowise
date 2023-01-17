@@ -14,14 +14,14 @@ class IntArrayCommandForGetAllNNaturalDivisorsMethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        IntegerValueCommandData data = new IntegerValueCommandData(1); // to do
-        int[] array = new int[]{0};
+        IntegerValueCommandData data = new IntegerValueCommandData(130); // to do
+        int[] array = new int[]{1, 2, 5, 10, 13, 26, 65, 130};
         Command<IntArrayCommandResult> command = new IntArrayCommandForGetAllNNaturalDivisorsMethod(mockService);
-        when(mockService.getAllNNaturalDividors(1)).thenReturn(array);
+        when(mockService.getAllNNaturalDividors(130)).thenReturn(array);
 
         IntArrayCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).getAllNNaturalDividors(1);
+        verify(mockService, times(1)).getAllNNaturalDividors(130);
         assertArrayEquals(array,result.intArray);
     }
 }

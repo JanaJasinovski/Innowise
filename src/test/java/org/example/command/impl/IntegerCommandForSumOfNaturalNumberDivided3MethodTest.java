@@ -14,13 +14,13 @@ class IntegerCommandForSumOfNaturalNumberDivided3MethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        IntegerValueCommandData data = new IntegerValueCommandData(2); // to do
+        IntegerValueCommandData data = new IntegerValueCommandData(10); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForSumOfNaturalNumberDivided3Method(mockService);
-        when(mockService.sumOfNaturalNumberDivided3(2)).thenReturn(2);
+        when(mockService.sumOfNaturalNumberDivided3(10)).thenReturn(18);
 
         IntegerCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).sumOfNaturalNumberDivided3(2);
-        assertEquals(2,result.value);
+        verify(mockService, times(1)).sumOfNaturalNumberDivided3(10);
+        assertEquals(18,result.value);
     }
 }

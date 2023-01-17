@@ -14,14 +14,14 @@ class IntArrayCommandForGetAllCommonMultiplesLessMAndNMethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        Integer2ValuesCommandData data = new Integer2ValuesCommandData(1, 2); // to do
-        int[] array = new int[]{0};
+        Integer2ValuesCommandData data = new Integer2ValuesCommandData(160, 250); // to do
+        int[] array = new int[]{4000, 8000, 12000, 16000, 20000, 24000, 28000, 32000, 36000};
         Command<IntArrayCommandResult> command = new IntArrayCommandForGetAllCommonMultiplesLessMAndNMethod(mockService);
-        when(mockService.getAllCommonMultiplesLessMAndN(1, 2)).thenReturn(array);
+        when(mockService.getAllCommonMultiplesLessMAndN(160, 250)).thenReturn(array);
 
         IntArrayCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).getAllCommonMultiplesLessMAndN(1, 2);
+        verify(mockService, times(1)).getAllCommonMultiplesLessMAndN(160, 250);
         assertArrayEquals(array,result.intArray);
     }
 }

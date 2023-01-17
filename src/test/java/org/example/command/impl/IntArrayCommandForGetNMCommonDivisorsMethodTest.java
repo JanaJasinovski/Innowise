@@ -14,14 +14,14 @@ class IntArrayCommandForGetNMCommonDivisorsMethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        Integer2ValuesCommandData data = new Integer2ValuesCommandData(1,2); // to do
-        int[] a= new int[] {0};
+        Integer2ValuesCommandData data = new Integer2ValuesCommandData(10,55); // to do
+        int[] a= new int[] {1, 5};
         Command<IntArrayCommandResult> command = new IntArrayCommandForGetNMCommonDivisorsMethod(mockService);
-        when(mockService.getNMCommonDivisors(1,2)).thenReturn(a);
+        when(mockService.getNMCommonDivisors(10,55)).thenReturn(a);
 
         IntArrayCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).getNMCommonDivisors(1,2);
+        verify(mockService, times(1)).getNMCommonDivisors(10,55);
         assertArrayEquals(a,result.intArray);
     }
 }

@@ -15,14 +15,14 @@ class IntArrayCommandForArrayContainingBFromAIntMethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        Integer2ValuesCommandData data = new Integer2ValuesCommandData(1, 22); // to do
-        int[] array = new int[]{0};
+        Integer2ValuesCommandData data = new Integer2ValuesCommandData(3451, 3); // to do
+        int[] array = new int[]{3,4,5};
         Command<IntArrayCommandResult> command = new IntArrayCommandForArrayContainingBFromAIntMethod(mockService);
-        when(mockService.arrayContainingBFromAInt(1,22)).thenReturn(array);
+        when(mockService.arrayContainingBFromAInt(3451,3)).thenReturn(array);
 
         IntArrayCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).arrayContainingBFromAInt(1,22);
+        verify(mockService, times(1)).arrayContainingBFromAInt(3451,3);
         assertArrayEquals(array,result.intArray);
     }
 

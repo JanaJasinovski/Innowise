@@ -14,14 +14,20 @@ class IntegerCommandForSumOfSerialNumbersPrimeNumbersMethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        int[] array = new int[] {1,2,3,4,5,6,7,8,9};
-        IntegerValueAndArrayCommandData data = new IntegerValueAndArrayCommandData(2, array); // to do
+        int n = 5;
+        int[] array = new int[n];
+        array[0] = 123;
+        array[1] = 1221;
+        array[2] = 1234;
+        array[3] = 2344;
+        array[4] = 123;
+        IntegerValueAndArrayCommandData data = new IntegerValueAndArrayCommandData(n, array); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForSumOfSerialNumbersPrimeNumbersMethod(mockService);
-        when(mockService.sumOfSerialNumbersPrimeNumbers(2, array)).thenReturn(2);
+        when(mockService.sumOfSerialNumbersPrimeNumbers(n, array)).thenReturn(3578);
 
         IntegerCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).sumOfSerialNumbersPrimeNumbers(2, array);
-        assertEquals(2,result.value);
+        verify(mockService, times(1)).sumOfSerialNumbersPrimeNumbers(n, array);
+        assertEquals(3578,result.value);
     }
 }

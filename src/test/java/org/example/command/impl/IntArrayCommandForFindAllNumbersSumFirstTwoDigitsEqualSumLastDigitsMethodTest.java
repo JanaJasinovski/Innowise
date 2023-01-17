@@ -14,15 +14,20 @@ class IntArrayCommandForFindAllNumbersSumFirstTwoDigitsEqualSumLastDigitsMethodT
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        int[] array = new int[]{1,2,3,4,5,6,7,8,9};
-        int[] a2 = new int[]{0};
-        IntegerValueAndArrayCommandData data = new IntegerValueAndArrayCommandData(1, array); // to do
+        int n = 5;
+        int[] array = new int[n];
+        array[0] = 123;
+        array[1] = 1221;
+        array[2] = 1234;
+        array[3] = 2344;
+        array[4] = 123;
+        IntegerValueAndArrayCommandData data = new IntegerValueAndArrayCommandData(5, array); // to do
         Command<IntArrayCommandResult> command = new IntArrayCommandForFindAllNumbersSumFirstTwoDigitsEqualSumLastDigitsMethod(mockService);
-        when(mockService.findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(1, array)).thenReturn(a2);
+        when(mockService.findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(5, array)).thenReturn(new int[]{1221});
 
         IntArrayCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(1, array);
-        assertArrayEquals(a2,result.intArray);
+        verify(mockService, times(1)).findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(5, array);
+        assertArrayEquals(new int[]{1221},result.intArray);
     }
 }

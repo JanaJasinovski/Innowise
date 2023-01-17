@@ -16,11 +16,11 @@ class IntegerCommandForFindLargestPowerOf100UsingIntMethodTest {
         Service mockService = Mockito.mock(Service.class);
         ZeroCommandData data = new ZeroCommandData(); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForFindLargestPowerOf100UsingIntMethod(mockService);
-        when(mockService.findLargestPowerOf100UsingInt()).thenReturn(0);
+        when(mockService.findLargestPowerOf100UsingInt()).thenReturn(6);
 
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).findLargestPowerOf100UsingInt();
-        assertEquals(0,result.value);
+        assertEquals(6,result.value);
     }
 }

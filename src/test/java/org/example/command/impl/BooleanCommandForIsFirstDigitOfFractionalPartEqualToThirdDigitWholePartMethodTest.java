@@ -22,5 +22,14 @@ class BooleanCommandForIsFirstDigitOfFractionalPartEqualToThirdDigitWholePartMet
 
         verify(mockService, times(1)).isFirstDigitOfFractionalPartEqualToThirdDigitWholePart(1.234);
         assertFalse(result.value);
+
+        data = new DoubleValueCommandData(2.234); // to do
+        command = new BooleanCommandForIsFirstDigitOfFractionalPartEqualToThirdDigitWholePartMethod(mockService);
+        when(mockService.isFirstDigitOfFractionalPartEqualToThirdDigitWholePart(2.234)).thenReturn(true);
+
+        result = command.execute(data);
+
+        verify(mockService, times(1)).isFirstDigitOfFractionalPartEqualToThirdDigitWholePart(2.234);
+        assertTrue(result.value);
     }
 }

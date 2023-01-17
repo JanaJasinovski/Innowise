@@ -14,13 +14,13 @@ class IntegerCommandForFindHighestPowerOfFractionalMethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        IntegerValueCommandData data = new IntegerValueCommandData(10); // to do
+        IntegerValueCommandData data = new IntegerValueCommandData(5); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForFindHighestPowerOfFractionalMethod(mockService);
-        when(mockService.findHighestPowerOfFactorial(10)).thenReturn(0);
+        when(mockService.findHighestPowerOfFactorial(5)).thenReturn(6);
 
         IntegerCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).findHighestPowerOfFactorial(10);
-        assertEquals(0,result.value);
+        verify(mockService, times(1)).findHighestPowerOfFactorial(5);
+        assertEquals(6,result.value);
     }
 }

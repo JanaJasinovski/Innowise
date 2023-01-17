@@ -16,11 +16,11 @@ class IntegerCommandForSumOfFirstNNaturalNumbersArePowers5MethodTest {
         Service mockService = Mockito.mock(Service.class);
         IntegerValueCommandData data = new IntegerValueCommandData(2); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForSumOfFirstNNaturalNumbersArePowers5Method(mockService);
-        when(mockService.sumOfFirstNNaturalNumbersArePowers5(2)).thenReturn(2);
+        when(mockService.sumOfFirstNNaturalNumbersArePowers5(2)).thenReturn(30);
 
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).sumOfFirstNNaturalNumbersArePowers5(2);
-        assertEquals(2,result.value);
+        assertEquals(30,result.value);
     }
 }

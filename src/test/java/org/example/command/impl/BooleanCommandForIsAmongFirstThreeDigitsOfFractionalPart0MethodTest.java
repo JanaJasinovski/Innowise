@@ -14,14 +14,14 @@ class BooleanCommandForIsAmongFirstThreeDigitsOfFractionalPart0MethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        DoubleValueCommandData data = new DoubleValueCommandData(1.234); // to do
+        DoubleValueCommandData data = new DoubleValueCommandData(1.2034); // to do
         Command<BooleanCommandResult> command = new BooleanCommandForIsAmongFirstThreeDigitsOfFractionalPart0Method(mockService);
-        when(mockService.isAmongFirstThreeDigitsOfFractionalPart0(1.234)).thenReturn(false);
+        when(mockService.isAmongFirstThreeDigitsOfFractionalPart0(1.2034)).thenReturn(true);
 
         BooleanCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).isAmongFirstThreeDigitsOfFractionalPart0(1.234);
-        assertFalse(result.value);
+        verify(mockService, times(1)).isAmongFirstThreeDigitsOfFractionalPart0(1.2034);
+        assertTrue(result.value);
     }
 
 }

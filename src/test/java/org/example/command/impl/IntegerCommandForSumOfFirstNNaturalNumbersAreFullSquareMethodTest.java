@@ -14,13 +14,13 @@ class IntegerCommandForSumOfFirstNNaturalNumbersAreFullSquareMethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        IntegerValueCommandData data = new IntegerValueCommandData(2); // to do
+        IntegerValueCommandData data = new IntegerValueCommandData(30); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForSumOfFirstNNaturalNumbersAreFullSquareMethod(mockService);
-        when(mockService.sumOfFirstNNaturalNumbersAreFullSquares(2)).thenReturn(2);
+        when(mockService.sumOfFirstNNaturalNumbersAreFullSquares(30)).thenReturn(55);
 
         IntegerCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).sumOfFirstNNaturalNumbersAreFullSquares(2);
-        assertEquals(2,result.value);
+        verify(mockService, times(1)).sumOfFirstNNaturalNumbersAreFullSquares(30);
+        assertEquals(55,result.value);
     }
 }

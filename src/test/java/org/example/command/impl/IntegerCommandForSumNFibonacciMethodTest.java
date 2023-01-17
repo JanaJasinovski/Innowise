@@ -14,13 +14,13 @@ class IntegerCommandForSumNFibonacciMethodTest {
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
-        IntegerValueCommandData data = new IntegerValueCommandData(2); // to do
+        IntegerValueCommandData data = new IntegerValueCommandData(5); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForSumNFibonacciMethod(mockService);
-        when(mockService.sumNFibonacci(2)).thenReturn(2);
+        when(mockService.sumNFibonacci(5)).thenReturn(12);
 
         IntegerCommandResult result = command.execute(data);
 
-        verify(mockService, times(1)).sumNFibonacci(2);
-        assertEquals(2,result.value);
+        verify(mockService, times(1)).sumNFibonacci(5);
+        assertEquals(12,result.value);
     }
 }
