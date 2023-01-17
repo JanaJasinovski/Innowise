@@ -1,7 +1,7 @@
 package org.example.command.impl;
 
 import org.example.command.Command;
-import org.example.data.Integer3ValuesCommandData;
+import org.example.data.IntegerValueCommandData;
 import org.example.model.Service;
 import org.example.model.impl.ServiceImpl;
 import org.example.params.CommandParams;
@@ -12,7 +12,7 @@ public class IntArrayCommandForFindAllNaturalNumbersABExpressionMethod implement
 
     @Override
     public IntArrayCommandResult execute(CommandParams commandParams) throws Exception {
-        int[] allNNaturalDivisors = service.findAllNaturalNumbersABExpression(((Integer3ValuesCommandData) commandParams).a, ((Integer3ValuesCommandData) commandParams).b, ((Integer3ValuesCommandData) commandParams).c);
+        int[] allNNaturalDivisors = service.findAllNaturalNumbersABExpression(((IntegerValueCommandData) commandParams).a);
         IntArrayCommandResult intArrayCommandResult = new IntArrayCommandResult();
         intArrayCommandResult.intArray = allNNaturalDivisors;
         return intArrayCommandResult;

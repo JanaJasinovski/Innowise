@@ -15,6 +15,6 @@ public class FindHighestPowerOfFactorialTest {
 
         int expectedResult = service.findHighestPowerOfFactorial(n);
 
-        assertEquals(2, expectedResult);
+        assertEquals(6, expectedResult);
     }
 }

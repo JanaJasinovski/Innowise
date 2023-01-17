@@ -78,24 +78,24 @@ public interface Service {
 
     // Определить, равна ли сумма первых k цифр дробной части заданного положительного вещественного числа сумме n
     // следующих цифр.
-    boolean isSumFirstKDigitsFractionalPartEqualSumNextNDigits(double n, int k);
+    boolean isSumFirstKDigitsFractionalPartEqualSumNextNDigits(double n, int k) throws NegativeException, ValueCommandDataException;
 
     // 1. Найти все такие натуральные a, b, что n = 3a + 5b для заданного натурального числа n > 7.
-    int[] findAllNaturalNumbersABExpression(int a, int b, int n);
+    int[] findAllNaturalNumbersABExpression( int n) throws NegativeException, ValueCommandDataException;
 
     // 2. Сверхпростым называется число, если оно простое, и число, полученное из исходного числа при записи
     // цифр исходного числа в обратном порядке («перевертыш»), тоже будет простым. Написать программу, которая
     // выводит все сверхпростые числа в диапазоне от а до b.
-    int[] findAllSuperprimesBetweenAB(int b, int a);
+    int[] findAllSuperprimesBetweenAB(int b, int a) throws ValueCommandDataException, NegativeException;
 
     // Вводится последовательность целых чисел. Определить количество элементов в наиболее длинной подпоследовательности
     // подряд идущих чисел, упорядоченных по возрастанию.
-    int findColNumbersInLongestSubsequenceNumbersSortedASC(int n, int[] array);
+    int findColNumbersInLongestSubsequenceNumbersSortedASC(int n, int[] array) throws NegativeException, ValueCommandDataException;
 
     // 2.6.2. Выполнить задания без хранения последовательности значений Задано  натуральное  число k. Определить
     // k-ю цифру  последовательности:
     //  1.  1525125625...,               в которой выписаны подряд степени 5;
-    int findKNumberInSequences(int k);
+    int findKNumberInSequences(int k) throws NegativeException, ValueCommandDataException;
 }
 
 

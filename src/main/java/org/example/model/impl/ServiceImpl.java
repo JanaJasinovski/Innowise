@@ -56,7 +56,7 @@ public class ServiceImpl implements Service {
     public int[] arrayContainingBFromADouble(double a, int b) throws NegativeException {
         double fract = a % 1;
         int[] array = new int[b];
-        if(a < 0) {
+        if (a < 0) {
             throw new NegativeException("Incorrect first number");
         }
         if (count(a) < b) {
@@ -195,10 +195,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public int sumNFibonacci(int a) throws NegativeException {
-        if(a < 0) {
+        if (a < 0) {
             throw new NegativeException("a less than 0");
-        }
-        else if(a == 0) {
+        } else if (a == 0) {
             return 0;
         }
         int sumNumbers = 0;
@@ -216,10 +215,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public int sumOfFirstNNaturalNumbersAreFullSquares(int a) throws NegativeException {
-        if(a < 0) {
+        if (a < 0) {
             throw new NegativeException("a less than 0");
-        }
-        else if(a == 0) {
+        } else if (a == 0) {
             return 0;
         }
         int sumNumbers = 0;
@@ -243,10 +241,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public int[] getAllNNaturalDividors(int a) throws NegativeException, ValueCommandDataException {
-        if(a < 0) {
+        if (a < 0) {
             throw new NegativeException("a less than 0");
-        }
-        else if(a == 0) {
+        } else if (a == 0) {
             throw new ValueCommandDataException("a can't be 0");
         }
         int[] result = new int[a];
@@ -260,10 +257,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public int[] getNMCommonDivisors(int a, int b) throws NegativeException, ValueCommandDataException {
-        if(a < 0 || b < 0) {
+        if (a < 0 || b < 0) {
             throw new NegativeException("a or b less than 0");
-        }
-        else if(a == 0 || b == 0) {
+        } else if (a == 0 || b == 0) {
             throw new ValueCommandDataException("a or b can't be 0");
         }
         int j = 0;
@@ -297,10 +293,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public int[] getAllCommonMultiplesLessMAndN(int a, int b) throws NegativeException, ValueCommandDataException {
-        if(a < 0 || b < 0) {
+        if (a < 0 || b < 0) {
             throw new NegativeException("a or b less than 0");
-        }
-        else if(a == 0 || b == 0) {
+        } else if (a == 0 || b == 0) {
             throw new ValueCommandDataException("a or b can't be 0");
         }
         int nm = a * b;
@@ -340,10 +335,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public int[] findAllNumbersNotExceedingN(int n) throws NegativeException, ValueCommandDataException {
-        if(n < 0) {
+        if (n < 0) {
             throw new NegativeException("n less than 0");
-        }
-        else if(n == 0) {
+        } else if (n == 0) {
             throw new ValueCommandDataException("n can't be 0");
         }
         int[] primes = new int[n];
@@ -377,10 +371,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public int[] findAllNumbersSumFirstTwoDigitsEqualSumLastDigits(int n, int[] mas) throws NegativeException, ValueCommandDataException {
-        if(n < 0) {
+        if (n < 0) {
             throw new NegativeException("n less than 0");
-        }
-        else if(n == 0) {
+        } else if (n == 0) {
             throw new ValueCommandDataException("n can't be 0");
         }
         int[] resultMas = new int[n];
@@ -414,7 +407,7 @@ public class ServiceImpl implements Service {
 
     @Override
     public int sumOfSerialNumbersPrimeNumbers(int n, int[] mas) throws ValueCommandDataException {
-        if(n <= 0) {
+        if (n <= 0) {
             throw new ValueCommandDataException("n is 0");
         }
         int[] primes = new int[mas.length];
@@ -445,7 +438,7 @@ public class ServiceImpl implements Service {
     @Override
     public int sumOfPrimeNumbers(int n, int[] mas) throws ValueCommandDataException {
 //        int[] main.result = new int[mas.length];
-        if(n <= 0) {
+        if (n <= 0) {
             throw new ValueCommandDataException("n is 0");
         }
         int sum = 0;
@@ -516,7 +509,12 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public boolean isSumFirstKDigitsFractionalPartEqualSumNextNDigits(double n, int k) {
+    public boolean isSumFirstKDigitsFractionalPartEqualSumNextNDigits(double n, int k) throws NegativeException, ValueCommandDataException {
+        if (n < 0 || k < 0) {
+            throw new NegativeException("n less than 0");
+        } else if (n == 0 || k == 0) {
+            throw new ValueCommandDataException("n can't be 0");
+        }
         double fraction = n % 1;
         int sumk = 0;
         for (int i = 1; i <= k; i++) {
@@ -524,13 +522,13 @@ public class ServiceImpl implements Service {
             sumk += (int) fraction % 10;
         }
 
+
         int sumAll = 0;
         fraction = n % 1;
         for (int i = 1; i <= count(n); i++) {
             fraction *= 10;
-            sumAll += (int) fraction % 10;
+            sumAll += ((int) fraction % 10);
         }
-
         int sumLast = sumAll - sumk;
         return sumk == sumLast;
     }
@@ -545,13 +543,20 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] findAllNaturalNumbersABExpression(int a, int b, int n) {
-        int[] result = new int[a];
-
+    public int[] findAllNaturalNumbersABExpression(int n) throws NegativeException, ValueCommandDataException {
+        if (n < 0) {
+            throw new NegativeException("n less than 0");
+        } else if (n == 0) {
+            throw new ValueCommandDataException("n can't be 0");
+        }
+        int[] result = new int[n];
+        int a = 0;
+        int b = 0;
         for (a = 0; a <= n / 3; ++a) {
             for (b = 0; b <= n / 5; ++b) {
                 if (3 * a + 5 * b == n) {
-                    result[a] = n;
+                    result[0] = a;
+                    result[1] = b;
                 }
             }
         }
@@ -561,7 +566,12 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int[] findAllSuperprimesBetweenAB(int b, int a) {
+    public int[] findAllSuperprimesBetweenAB(int b, int a) throws ValueCommandDataException, NegativeException {
+        if (a < 0 || b < 0) {
+            throw new NegativeException("n less than 0");
+        } else if (a == 0 || b == 0) {
+            throw new ValueCommandDataException("n can't be 0");
+        }
         int max = b, min = a;
         if (a > b) {
             max = a;
@@ -591,7 +601,12 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int findColNumbersInLongestSubsequenceNumbersSortedASC(int n, int[] array) {
+    public int findColNumbersInLongestSubsequenceNumbersSortedASC(int n, int[] array) throws NegativeException, ValueCommandDataException {
+        if (n < 0) {
+            throw new NegativeException("n less than 0");
+        } else if (n == 0) {
+            throw new ValueCommandDataException("n can't be 0");
+        }
         int size = array.length, buffer = 1, maxbuffer = 0, max = 0;
         for (int i = 0; i < size - 1; i++) {
             if (array[i + 1] > array[i]) {
@@ -614,7 +629,12 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public int findKNumberInSequences(int k) {
+    public int findKNumberInSequences(int k) throws NegativeException, ValueCommandDataException {
+        if (k < 0) {
+            throw new NegativeException("n less than 0");
+        } else if (k == 0) {
+            throw new ValueCommandDataException("n can't be 0");
+        }
         int b = 1;
         int n = 0;
         while (n < k) {
@@ -624,7 +644,6 @@ public class ServiceImpl implements Service {
                 n++;
 
             }
-            ;
         }
         for (int i = n - k; i > 0; i--) {
             b /= 10;
