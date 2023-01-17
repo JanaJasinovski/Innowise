@@ -2,25 +2,40 @@ package org.example.command.impl;
 
 import org.example.command.Command;
 import org.example.data.IntegerValueCommandData;
+import org.example.exception.ValueCommandDataException;
 import org.example.model.Service;
+import org.example.params.CommandParams;
 import org.example.result.impl.IntegerCommandResult;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-
+@ExtendWith(MockitoExtension.class)
 class IntegerCommandForFindHighestPowerOfFractionalMethodTest {
+    @Mock
+    private Service mockService;
+    @InjectMocks
+    private IntegerCommandForFindHighestPowerOfFractionalMethod command;
     @Test
-    void test() throws Exception {
-        Service mockService = Mockito.mock(Service.class);
-        IntegerValueCommandData data = new IntegerValueCommandData(5); // to do
-        Command<IntegerCommandResult> command = new IntegerCommandForFindHighestPowerOfFractionalMethod(mockService);
+    void shouldFindHighestPowerOfFractionalTest() throws Exception {
+        IntegerValueCommandData data = new IntegerValueCommandData(5);
         when(mockService.findHighestPowerOfFactorial(5)).thenReturn(6);
 
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).findHighestPowerOfFactorial(5);
         assertEquals(6,result.value);
+    }
+
+    @Test
+    void shouldCheckArgumentCorrectTest() throws Exception {
+        CommandParams data = Mockito.mock(CommandParams.class);
+
+        assertThrows(ValueCommandDataException.class, () -> command.execute(data));
     }
 }
