@@ -21,6 +21,6 @@ class IntegerCommandForSumNFibonacciMethodTest {
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).sumNFibonacci(2);
-        assertEquals(1,result.value);
+        assertEquals(2,result.value);
     }
 }

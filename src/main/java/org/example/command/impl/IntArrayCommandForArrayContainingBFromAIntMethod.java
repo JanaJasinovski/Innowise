@@ -10,9 +10,13 @@ import org.example.model.Service;
 import org.example.params.CommandParams;
 import org.example.result.impl.IntArrayCommandResult;
 
-@AllArgsConstructor
 public class IntArrayCommandForArrayContainingBFromAIntMethod implements Command<IntArrayCommandResult> {
-    private Service service;
+    private final Service service;
+
+    public IntArrayCommandForArrayContainingBFromAIntMethod(Service service) {
+        this.service = service;
+    }
+
     @Override
     public IntArrayCommandResult execute(CommandParams commandParams) throws NegativeException, InCorrectParameterException, ValueCommandDataException {
         if(!(commandParams instanceof Integer2ValuesCommandData)) {
@@ -20,7 +24,8 @@ public class IntArrayCommandForArrayContainingBFromAIntMethod implements Command
         }
         int[] ints = service.arrayContainingBFromAInt(
                 ((Integer2ValuesCommandData) commandParams).a,
-                ((Integer2ValuesCommandData) commandParams).b);
+                ((Integer2ValuesCommandData) commandParams).b
+        );
         IntArrayCommandResult intArrayCommandResult = new IntArrayCommandResult();
         intArrayCommandResult.intArray = ints;
         return intArrayCommandResult;

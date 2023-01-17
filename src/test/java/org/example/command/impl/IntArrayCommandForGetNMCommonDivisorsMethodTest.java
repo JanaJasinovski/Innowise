@@ -15,13 +15,13 @@ class IntArrayCommandForGetNMCommonDivisorsMethodTest {
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
         Integer2ValuesCommandData data = new Integer2ValuesCommandData(1,2); // to do
-        Command<IntArrayCommandResult> command = new IntArrayCommandForArrayContainingBFromADoubleMethod(mockService);
-        when(mockService.getNMCommonDivisors(1,2)).thenReturn(null);
-        int[] array = new int[]{1,2,3,4,5,6,7,8,9};
+        int[] a= new int[] {0};
+        Command<IntArrayCommandResult> command = new IntArrayCommandForGetNMCommonDivisorsMethod(mockService);
+        when(mockService.getNMCommonDivisors(1,2)).thenReturn(a);
 
         IntArrayCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).getNMCommonDivisors(1,2);
-        assertArrayEquals(array,result.intArray);
+        assertArrayEquals(a,result.intArray);
     }
 }

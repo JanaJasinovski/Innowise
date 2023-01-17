@@ -21,6 +21,6 @@ class IntegerCommandForSumOfFirstNNaturalNumbersAreFullSquareMethodTest {
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).sumOfFirstNNaturalNumbersAreFullSquares(2);
-        assertEquals(1,result.value);
+        assertEquals(2,result.value);
     }
 }

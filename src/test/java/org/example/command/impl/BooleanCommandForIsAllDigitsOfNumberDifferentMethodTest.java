@@ -15,7 +15,7 @@ class BooleanCommandForIsAllDigitsOfNumberDifferentMethodTest {
     void isAllDigitsOfNumberDifferentMethodTest() throws Exception {
         Service mockService = Mockito.mock(Service.class);
         IntegerValueCommandData data = new IntegerValueCommandData(2); // to do
-        Command<BooleanCommandResult> command = new BooleanCommandForIsSumFirstKDigitsFractionalPartEqualSumNextNDigitsMethod(mockService);
+        Command<BooleanCommandResult> command = new BooleanCommandForIsAllDigitsOfNumberDifferentMethod(mockService);
         when(mockService.isAllDigitsOfNumberDifferent( 2)).thenReturn(false);
 
         BooleanCommandResult result = command.execute(data);

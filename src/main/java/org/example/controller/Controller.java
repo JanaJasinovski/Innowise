@@ -12,7 +12,6 @@ public class Controller {
     CommandHandler commandHandler = new CommandHandler();
     ParamsHandler paramsHandler = new ParamsHandler();
     TypeHandler typeHandler = new TypeHandler();
-
     public void execute() throws Exception {
         int number;
         do {
@@ -22,7 +21,7 @@ public class Controller {
             Command<?> service = commandHandler.getService(number);
             String convert = typeHandler.getHandler(service.getType()).convert(service.execute(commandParams));
             view.print(convert);
-        } while (number != 26);
+        } while (number != 25);
     }
 }
 

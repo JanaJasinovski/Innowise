@@ -11,7 +11,7 @@ public class DoubleCommandParamGenerator implements ParamGenerator {
     public CommandParams generateParam() {
         view.print("Enter double value: ");
         DoubleValueCommandData data = new DoubleValueCommandData();
-        data.setA(view.getDoubleValue());
+        data.a = view.getDoubleValue();
         return data;
     }
 }

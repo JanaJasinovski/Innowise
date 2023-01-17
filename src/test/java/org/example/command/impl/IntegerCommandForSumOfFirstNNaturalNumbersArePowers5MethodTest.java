@@ -21,6 +21,6 @@ class IntegerCommandForSumOfFirstNNaturalNumbersArePowers5MethodTest {
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).sumOfFirstNNaturalNumbersArePowers5(2);
-        assertEquals(1,result.value);
+        assertEquals(2,result.value);
     }
 }

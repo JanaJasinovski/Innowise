@@ -16,9 +16,9 @@ class IntArrayCommandForArrayContainingBFromADoubleMethodTest {
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
         DoubleValueIntegerValueCommandData data = new DoubleValueIntegerValueCommandData(1.234, 22); // to do
+        int[] array = new int[]{0};
         Command<IntArrayCommandResult> command = new IntArrayCommandForArrayContainingBFromADoubleMethod(mockService);
-        when(mockService.arrayContainingBFromADouble(1.234,22)).thenReturn(null);
-        int[] array = new int[]{1,2,3,4,5,6,7,8,9};
+        when(mockService.arrayContainingBFromADouble(1.234,22)).thenReturn(array);
 
         IntArrayCommandResult result = command.execute(data);
 

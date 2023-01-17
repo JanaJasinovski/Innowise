@@ -1,6 +1,7 @@
 package org.example.command.impl;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.example.command.Command;
 import org.example.data.IntegerValueAndArrayCommandData;
 import org.example.exception.ValueCommandDataException;
@@ -9,6 +10,7 @@ import org.example.params.CommandParams;
 import org.example.result.impl.IntegerCommandResult;
 
 @AllArgsConstructor
+@NoArgsConstructor
 public class IntegerCommandForFindColNumbersInLongestSubsequenceNumbersSortedASCMethod implements Command<IntegerCommandResult> {
     private Service service;
     @Override

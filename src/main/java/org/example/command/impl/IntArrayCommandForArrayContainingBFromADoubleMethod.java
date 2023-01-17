@@ -1,6 +1,7 @@
 package org.example.command.impl;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.example.command.Command;
 import org.example.data.DoubleValueCommandData;
 import org.example.data.DoubleValueIntegerValueCommandData;
@@ -13,7 +14,7 @@ import org.example.result.impl.IntArrayCommandResult;
 
 @AllArgsConstructor
 public class IntArrayCommandForArrayContainingBFromADoubleMethod implements Command<IntArrayCommandResult> {
-    private Service service;
+    private final Service service;
     @Override
     public IntArrayCommandResult execute(CommandParams commandParams) throws NegativeException, ValueCommandDataException {
         if(!(commandParams instanceof DoubleValueIntegerValueCommandData)) {
@@ -21,7 +22,8 @@ public class IntArrayCommandForArrayContainingBFromADoubleMethod implements Comm
         }
         int[] ints = service.arrayContainingBFromADouble(
                 ((DoubleValueIntegerValueCommandData) commandParams).a,
-                ((DoubleValueIntegerValueCommandData) commandParams).b);
+                ((DoubleValueIntegerValueCommandData) commandParams).b
+        );
         IntArrayCommandResult intArrayCommandResult = new IntArrayCommandResult();
         intArrayCommandResult.intArray = ints;
         return intArrayCommandResult;

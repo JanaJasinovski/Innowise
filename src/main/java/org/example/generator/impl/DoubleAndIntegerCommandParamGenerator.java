@@ -11,9 +11,9 @@ public class DoubleAndIntegerCommandParamGenerator implements ParamGenerator {
     public CommandParams generateParam() {
         view.print("Enter double value: ");
         DoubleValueIntegerValueCommandData data = new DoubleValueIntegerValueCommandData();
-        data.setA(view.getDoubleValue());
+        data.a = view.getDoubleValue();
         view.print("Enter integer value: ");
-        data.setB(view.getFirstIntValue());
+        data.b = view.getFirstIntValue();
         return data;
     }
 }

@@ -9,7 +9,7 @@ import org.example.params.CommandParams;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Integer3ValuesCommandData implements CommandParams {
-    private int a;
-    private int b;
-    private int c;
+    public int a;
+    public int b;
+    public int c;
 }

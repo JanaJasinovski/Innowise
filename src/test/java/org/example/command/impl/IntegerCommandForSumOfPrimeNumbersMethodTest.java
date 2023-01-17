@@ -22,6 +22,6 @@ class IntegerCommandForSumOfPrimeNumbersMethodTest {
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).sumOfPrimeNumbers(2, array);
-        assertEquals(1,result.value);
+        assertEquals(2,result.value);
     }
 }

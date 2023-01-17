@@ -11,7 +11,7 @@ public class IntegerCommandParamGenerator implements ParamGenerator {
     public CommandParams generateParam() {
         view.print("Enter integer value: ");
         IntegerValueCommandData data = new IntegerValueCommandData();
-        data.setA(view.getFirstIntValue());
+        data.a = view.getFirstIntValue();
         return data;
     }
 }

@@ -15,9 +15,9 @@ class IntArrayCommandForGetAllCommonMultiplesLessMAndNMethodTest {
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
         Integer2ValuesCommandData data = new Integer2ValuesCommandData(1, 2); // to do
-        Command<IntArrayCommandResult> command = new IntArrayCommandForArrayContainingBFromADoubleMethod(mockService);
-        when(mockService.getAllCommonMultiplesLessMAndN(1, 2)).thenReturn(null);
-        int[] array = new int[]{1,2,3,4,5,6,7,8,9};
+        int[] array = new int[]{0};
+        Command<IntArrayCommandResult> command = new IntArrayCommandForGetAllCommonMultiplesLessMAndNMethod(mockService);
+        when(mockService.getAllCommonMultiplesLessMAndN(1, 2)).thenReturn(array);
 
         IntArrayCommandResult result = command.execute(data);
 

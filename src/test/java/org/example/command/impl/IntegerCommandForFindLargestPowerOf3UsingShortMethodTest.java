@@ -16,11 +16,11 @@ class IntegerCommandForFindLargestPowerOf3UsingShortMethodTest {
         Service mockService = Mockito.mock(Service.class);
         ZeroCommandData data = new ZeroCommandData(); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForFindLargestPowerOf3UsingShortMethod(mockService);
-        when(mockService.findLargestPowerOf3UsingShort()).thenReturn(null);
+        when(mockService.findLargestPowerOf3UsingShort()).thenReturn(0);
 
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).findLargestPowerOf3UsingShort();
-        assertEquals(2,result.value);
+        assertEquals(0,result.value);
     }
 }

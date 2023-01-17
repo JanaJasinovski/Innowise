@@ -16,11 +16,11 @@ class IntegerCommandForFindHighestPowerOfFractionalMethodTest {
         Service mockService = Mockito.mock(Service.class);
         IntegerValueCommandData data = new IntegerValueCommandData(10); // to do
         Command<IntegerCommandResult> command = new IntegerCommandForFindHighestPowerOfFractionalMethod(mockService);
-        when(mockService.findHighestPowerOfFactorial(10)).thenReturn(null);
+        when(mockService.findHighestPowerOfFactorial(10)).thenReturn(0);
 
         IntegerCommandResult result = command.execute(data);
 
         verify(mockService, times(1)).findHighestPowerOfFactorial(10);
-        assertEquals(1,result.value);
+        assertEquals(0,result.value);
     }
 }

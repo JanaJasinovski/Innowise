@@ -16,8 +16,8 @@ class IntArrayCommandForFindAllSuperprimesBetweenABMethodTest {
         Service mockService = Mockito.mock(Service.class);
         Integer2ValuesCommandData data = new Integer2ValuesCommandData(1, 2); // to do
         Command<IntArrayCommandResult> command = new IntArrayCommandForFindAllSuperprimesBetweenABMethod(mockService);
-        when(mockService.findAllSuperprimesBetweenAB(1, 2)).thenReturn(null);
-        int[] array = new int[]{1,2,3,4,5,6,7,8,9};
+        int[] array = new int[]{0};
+        when(mockService.findAllSuperprimesBetweenAB(1, 2)).thenReturn(array);
 
         IntArrayCommandResult result = command.execute(data);
 

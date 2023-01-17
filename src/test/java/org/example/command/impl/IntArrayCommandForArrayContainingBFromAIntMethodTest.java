@@ -12,14 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class IntArrayCommandForArrayContainingBFromAIntMethodTest {
-
     @Test
     void test() throws Exception {
         Service mockService = Mockito.mock(Service.class);
         Integer2ValuesCommandData data = new Integer2ValuesCommandData(1, 22); // to do
-        Command<IntArrayCommandResult> command = new IntArrayCommandForArrayContainingBFromADoubleMethod(mockService);
-        when(mockService.arrayContainingBFromAInt(1,22)).thenReturn(null);
-        int[] array = new int[]{1,2,3,4,5,6,7,8,9};
+        int[] array = new int[]{0};
+        Command<IntArrayCommandResult> command = new IntArrayCommandForArrayContainingBFromAIntMethod(mockService);
+        when(mockService.arrayContainingBFromAInt(1,22)).thenReturn(array);
 
         IntArrayCommandResult result = command.execute(data);
 
